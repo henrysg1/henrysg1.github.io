@@ -1,25 +1,16 @@
-import logo from './logo.svg';
+import React from 'react';
+import Home from './Home';
+import { ThemeProvider } from './ThemeContext';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <ThemeProvider>
+            <div className="App">
+                <Home />
+            </div>
+        </ThemeProvider>
+    );
 }
 
 export default App;
