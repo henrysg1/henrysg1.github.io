@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.layout {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.layout.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.layout.dark {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.header {
+    background-color: #282c34;
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-and-switch {
+    display: flex;
+    align-items: center;
+}
+
+.header nav {
+    display: flex;
+    gap: 15px;
+    margin-right: 20px;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.header nav a:hover {
+    text-decoration: underline;
+}
+
+.theme-switch {
+    position: relative;
+    width: 50px;
+    height: 24px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.switch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    border-radius: 24px;
+    position: relative;
+    height: 20px;
+}
+
+.switch-button {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: #ffffff;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.theme-switch input:checked + .switch-label .switch-button {
+    left: 27px;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.footer {
+    background-color: #282c34;
+    color: white;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

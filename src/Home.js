@@ -2,12 +2,12 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useTheme } from './ThemeContext';
 import './Home.css';
+import { useTheme } from './ThemeContext';
 
 const Home = () => {
-    const { theme, toggleTheme } = useTheme();
-    
+    const { theme } = useTheme();
+
     const settings = {
         dots: true,
         infinite: true,
@@ -28,18 +28,17 @@ const Home = () => {
     ];
 
     return (
-        <div className={`home ${theme}`}>
-            <header className="header">
-                <h1>My Professional Website</h1>
-                <button onClick={toggleTheme} className="toggle-theme">
-                    Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
-                </button>
-            </header>
+        <div className="home">
             <section className="introduction">
-                <h2>About Me</h2>
-                <p>Welcome to my personal website. I am a software developer with experience in building high-quality web applications. Here you can find some of the projects I have worked on.</p>
+            <h2>About Me</h2>
+            <div className="about-me">
+                    <div className="about-me-text">
+                        <p>Welcome to my personal website. I am a software developer with experience in building high-quality web applications. Here you can find some of the projects I have worked on.</p>
+                    </div>
+                    <img src="https://via.placeholder.com/200" alt="My Portrait" className="about-me-image" />
+                </div>
             </section>
-            <section className="projects">
+            <section className={`projects`}>
                 <h2>My Projects</h2>
                 <Slider {...settings}>
                     {projects.map((project, index) => (
@@ -51,9 +50,6 @@ const Home = () => {
                     ))}
                 </Slider>
             </section>
-            <footer className="footer">
-                <p>&copy; 2024 Henry Sands-Grant. All rights reserved.</p>
-            </footer>
         </div>
     );
 };
