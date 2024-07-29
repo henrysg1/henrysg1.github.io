@@ -2,6 +2,8 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { Link } from 'react-router-dom';
+import projectsList from './projectsData';
 import './Home.css';
 import { useTheme } from './ThemeContext';
 
@@ -18,15 +20,6 @@ const Home = () => {
         prevArrow: <SamplePrevArrow />
     };
 
-    const projects = [
-        { title: 'Project One', description: 'Description for project one.', image: 'https://via.placeholder.com/800x400' },
-        { title: 'Project Two', description: 'Description for project two.', image: 'https://via.placeholder.com/800x400' },
-        { title: 'Project Three', description: 'Description for project three.', image: 'https://via.placeholder.com/800x400' },
-        { title: 'Project Four', description: 'Description for project four.', image: 'https://via.placeholder.com/800x400' },
-        { title: 'Project Five', description: 'Description for project five.', image: 'https://via.placeholder.com/800x400' },
-        { title: 'Project Six', description: 'Description for project six.', image: 'https://via.placeholder.com/800x400' }
-    ];
-
     return (
         <div className="home">
             <section className="introduction">
@@ -38,14 +31,15 @@ const Home = () => {
                     <img src="https://via.placeholder.com/200" alt="My Portrait" className="about-me-image" />
                 </div>
             </section>
-            <section className={`projects`}>
+            <section className="projects">
                 <h2>My Projects</h2>
                 <Slider {...settings}>
-                    {projects.map((project, index) => (
-                        <div key={index} className="project">
+                    {projectsList.map((project) => (
+                        <div key={project.id} className="project">
                             <img src={project.image} alt={project.title} />
                             <h3>{project.title}</h3>
                             <p>{project.description}</p>
+                            <Link to={`/project/${project.id}`}>Read more</Link>
                         </div>
                     ))}
                 </Slider>

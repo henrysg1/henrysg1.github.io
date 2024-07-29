@@ -1,0 +1,36 @@
+.projects {
+    padding: 20px;
+    text-align: center;
+}
+
+.projects-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project-item {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.project-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.project-detail {
+    padding: 20px;
+    text-align: center;
+}
+
+.project-detail img {
+    width: 80%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
