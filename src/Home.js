@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Link } from 'react-router-dom';
-import projectsList from './projectsData';
+import projectsList from './ProjectsData';
 import './Home.css';
 import { useTheme } from './ThemeContext';
 
@@ -21,14 +21,14 @@ const Home = () => {
     };
 
     return (
-        <div className="home">
+        <div className={`home ${theme}`}>
             <section className="introduction">
-            <h2>About Me</h2>
-            <div className="about-me">
+                <h2>About Me</h2>
+                <div className="about-me">
                     <div className="about-me-text">
                         <p>Welcome to my personal website. I am a software developer with experience in building high-quality web applications. Here you can find some of the projects I have worked on.</p>
                     </div>
-                    <img src="https://via.placeholder.com/200" alt="My Portrait" className="about-me-image" />
+                    <img src="images/henry-banner.png" alt="My Portrait" className="about-me-image" />
                 </div>
             </section>
             <section className="projects">
@@ -49,7 +49,7 @@ const Home = () => {
 };
 
 const SampleNextArrow = (props) => {
-    const { className, style, onClick } = props;
+    const { className, onClick } = props;
     return (
         <div
             className={`${className} custom-arrow custom-arrow-next`}
@@ -59,7 +59,7 @@ const SampleNextArrow = (props) => {
 };
 
 const SamplePrevArrow = (props) => {
-    const { className, style, onClick } = props;
+    const { className, onClick } = props;
     return (
         <div
             className={`${className} custom-arrow custom-arrow-prev`}

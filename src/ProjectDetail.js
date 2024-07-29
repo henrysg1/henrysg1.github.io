@@ -1,20 +1,20 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import projects from './projectsData';
-import './ProjectDetail.css';
+import projectsList from './ProjectsData'; // Import the project data
 
 const ProjectDetail = () => {
-    const { id } = useParams();
-    const project = projects.find((p) => p.id === parseInt(id));
+    const { id } = useParams(); // Get the project ID from the URL
+    const project = projectsList.find(project => project.id === parseInt(id)); // Find the project with the given ID
 
     if (!project) {
         return <div>Project not found</div>;
     }
 
     return (
-        <div className="project-detail">
-            <h2>{project.title}</h2>
-            <img src={project.image} alt={project.title} />
+        <div className="project-details">
+            <h1>{project.title}</h1>
+            <img src={`../${project.image}`} alt={project.title} />
+            <p>{project.description}</p>
             <p>{project.details}</p>
         </div>
     );

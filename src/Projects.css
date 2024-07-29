@@ -3,6 +3,25 @@
     text-align: center;
 }
 
+.filter-controls {
+    margin-bottom: 20px;
+}
+
+.filter-controls button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.filter-controls button:hover {
+    background-color: #0056b3;
+}
+
 .projects-list {
     display: flex;
     flex-wrap: wrap;
@@ -15,22 +34,32 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .project-item img {
     width: 100%;
-    height: auto;
+    height: 200px; /* Set a fixed height for the images */
+    object-fit: contain; /* This will crop the images to fit within the specified dimensions */
     border-radius: 5px;
 }
 
-.project-detail {
-    padding: 20px;
-    text-align: center;
+.project-item h3 {
+    margin: 10px 0;
 }
 
-.project-detail img {
-    width: 80%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 20px;
+.project-item p {
+    flex-grow: 1;
+}
+
+.project-item a {
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.project-item a:hover {
+    text-decoration: underline;
 }
