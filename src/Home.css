@@ -1,5 +1,5 @@
 .introduction {
-    padding: 40px 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,8 +8,12 @@
 
 .about-me {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 20px;
+    max-width: 1200px; /* Adjust based on your desired width */
+    width: 100%;
+    margin-top: 20px;
 }
 
 .about-me-image {
@@ -25,7 +29,7 @@
 }
 
 .projects {
-    padding: 40px 20px;
+    padding: 20px;
     border-radius: 20px;
     background-color: var(--projects-bg-color);
     color: var(--projects-text-color);
@@ -46,6 +50,7 @@
     margin: 10px;
     border-radius: 5px;
     height: 350px; /* Set a fixed height for the project box */
+    position: relative; /* Add position relative for absolute positioning inside */
 }
 
 .project img {
@@ -63,6 +68,21 @@
 .project p {
     margin: 10px 0;
     flex-grow: 1; /* Allow description to grow and take up available space */
+}
+
+.project .read-more-btn {
+    position: absolute;
+    bottom: 10px; /* Position at the bottom with some margin */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* Remove underline */
 }
 
 .custom-arrow {
@@ -125,4 +145,6 @@
 
 h2 {
     margin: 0;
+    text-align: center; /* Center align h2 */
+    width: 100%; /* Ensure it takes full width */
 }

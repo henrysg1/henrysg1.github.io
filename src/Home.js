@@ -20,12 +20,16 @@ const Home = () => {
         prevArrow: <SamplePrevArrow />
     };
 
+    const sortedProjects = [...projectsList].sort((a, b) => {
+        return b.id - a.id;
+    });
+
     return (
         <div className={`home ${theme}`}>
             <section className="introduction">
-                <h2>About Me</h2>
                 <div className="about-me">
                     <div className="about-me-text">
+                        <h2>About Me</h2>
                         <p>Welcome to my personal website. I am a software developer with experience in building high-quality web applications. Here you can find some of the projects I have worked on.</p>
                     </div>
                     <img src="images/henry-banner.png" alt="My Portrait" className="about-me-image" />
@@ -34,12 +38,12 @@ const Home = () => {
             <section className="projects">
                 <h2>My Projects</h2>
                 <Slider {...settings}>
-                    {projectsList.map((project) => (
+                    {sortedProjects.map((project) => (
                         <div key={project.id} className="project">
                             <img src={project.image} alt={project.title} />
                             <h3>{project.title}</h3>
                             <p>{project.description}</p>
-                            <Link to={`/project/${project.id}`}>Read more</Link>
+                            <Link to={`/project/${project.id}`} className="read-more-btn">Read more</Link>
                         </div>
                     ))}
                 </Slider>
