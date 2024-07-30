@@ -53,7 +53,19 @@ const projectsList = [
         details: 'Detailed information about Project Two',
         recommended: true
     },
-    { id: 10, title: 'Mission Control Software framework for a CubeSat application',
+    { id: 10, title: 'Prosthetic arm control system using EMG sensors',
+        description: 'A PCB and Microcontroller project used to control a prosthetic arm',
+        image: 'images/emg-board.jpg',
+        details: 'Detailed information about Project One',
+        recommended: true
+    },
+    { id: 11, title: 'Simple calculator using a Basys 3 FPGA board',
+        description: 'A simple calculator implemented on a Basys 3 FPGA board using VHDL',
+        image: 'images/vhdl-calculator.jpg',
+        details: 'Detailed information about Project One',
+        recommended: false
+    },
+    { id: 12, title: 'Mission Control Software framework for a CubeSat application',
         description: 'A framework for CubeSat teams to use to track and communicate with their satellite',
         image: 'images/cubesat-mission.png',
         details: 'Detailed information about Project One',
