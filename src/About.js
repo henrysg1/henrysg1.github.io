@@ -9,9 +9,19 @@ const About = () => {
                 <div className="about-content">
                     <img src="images/nottingham-university-logo.png" alt="Nottingham University" />
                     <div className="text-content">
-                        <p>I am a Masters student at the University of Nottingham studying Electronic Engineering. I am interested in a wide array of electronic and software areas, but have particular interests in computer vision, the Internet of Things and web development.</p>
-                        <p>In previous years at university, I have studied several different modules, ranging from Integrated Circuits & Systems to Power and Energy to Embedded Computing. In my final year at university, I aim to focus more heavily on electronics and software, studying modules such as Advanced Computational Engineering, Artificial Intelligence, HDL for Programmable Devices and Instrumentation and Measurement.</p>
-                        <p>As of 2021, I am a UK Electronic Skills Foundation (UKESF) Scholar, sponsored by Renesas Electronics. As part of this scholarship, I completed a 12-month industrial placement with Renesas Electronics, where I worked as a software engineer. In 2022, I received the Michael Bromwich Award at the University of Nottingham for achieving the highest end-of-year average mark in the 2021/22 academic year. I also received the Nottingham Engineering Excellence Award for being amongst the highest achieving students in my year group during the same year.</p>
+                    <p>I am a software engineer who graduated with a First from the University of Nottingham in MEng Electronic Engineering. I currently work at Renesas Electronics, where I work within the Cloud & AI team to develop client-facing applications.</p> 
+                    <p>At university, I was a UK Electronic Skills Foundation (UKESF) Scholar, sponsored by Renesas Electronics. In 2022, I received the Michael Bromwich Award at the University of Nottingham for achieving the highest end-of-year average mark in the 2021/22 academic year. I also received the Nottingham Engineering Excellence Award for being amongst the highest achieving students in my year group during the same year. I graduated with a First from the University of Nottingham with a weighted average of 86.5%.</p>
+                    <p>My master’s thesis was titled “Developing an open-source Mission Control Software framework to communicate with a CubeSat”. This thesis presented the development of a Mission Control Software (MCS) framework designed to expedite the setup and deployment of mission control systems for space operations teams, while reducing cost at the same time. Utilising the Packet Utilisation Standard (PUS), the framework provides a standardised approach to managing spacecraft operations, enhancing the efficiency and interoperability of mission control activities. Key to this development is the integration of original solutions tailored for the AstroDev Lithium-2 radio and a comprehensive satellite emulation environment, which collectively support advanced mission simulation and testing capabilities. I received a grade of 92.8% for this thesis.</p>
+                    <p>During my time at university, I studied a wide range of modules in both the Electronic and Electrical fields. Some of my favourite modules included:<br /> 
+                    <ul>
+                        <li>Advanced Computational Engineering, where I learnt about parallel computing, CUDA programming and databases.</li>
+                        <li>Embedded Computing, where I gained a strong understanding of modern computer systems, and programmed applications in Embedded C and Assembly.</li>
+                        <li>HDL for Programmable Devices, where I programmed different applications on a Xilinx FPGA using VHDL.</li>    
+                    </ul>
+                    </p>
+                    <p>In my fourth year at university, I did a placement year at Renesas Electronics, followed by a summer internship at Partner Electronics. Alongside my studies in my final year, I set up Laeon Ltd., an electronics consulting company, with my business partner, providing bespoke solutions for entrepreneurs and small-businesses. Some information about my work experience is listed below.</p>
+
+        
                     </div>
 
                     <img src="images/ukesf-logo.svg" alt="Nottingham University" />

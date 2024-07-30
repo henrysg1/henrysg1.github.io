@@ -30,7 +30,9 @@ const Home = () => {
                 <div className="about-me">
                     <div className="about-me-text">
                         <h2>About Me</h2>
-                        <p>Welcome to my personal website. I am a software developer with experience in building high-quality web applications. Here you can find some of the projects I have worked on.</p>
+                        <p>Welcome to my personal website. I am a software engineer with experience in building web applications and developing embedded software. 
+                           I am also interested in hardware engineering, gaining experience in industry and at University where I studied Electronic Engineering. 
+                           Here you can find some of the projects I have worked on.</p>
                     </div>
                     <img src="images/henry-banner.png" alt="My Portrait" className="about-me-image" />
                 </div>
