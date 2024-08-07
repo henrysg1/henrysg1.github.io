@@ -1,7 +1,15 @@
+@import url('variables.css');
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: var(--light-bg-color);
+    color: var(--light-text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
 }
 
 .contact-page {
@@ -13,16 +21,24 @@ body {
 .contact-section {
     margin-bottom: 40px;
     padding: 20px;
-    background-color: #fff;
+    background-color: var(--secondary-bg-color);
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
+}
+
+body.dark .contact-section {
+    background-color: var(--secondary-dark-bg-color);
 }
 
 h2 {
     font-size: 2.5em;
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    color: var(--light-text-color);
+}
+
+body.dark h2 {
+    color: var(--dark-text-color);
 }
 
 .contact-content {
@@ -48,7 +64,7 @@ h2 {
 }
 
 .contact-info a {
-    color: #007BFF;
+    color: var(--primary-color);
     text-decoration: none;
 }
 

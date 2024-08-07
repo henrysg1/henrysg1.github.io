@@ -1,0 +1,15 @@
+/* variables.css */
+
+:root {
+    --light-bg-color: #f9f9f9;
+    --light-text-color: #333;
+    --dark-bg-color: #282c34;
+    --dark-text-color: #f1f1f1;
+    --primary-color: #007bff;
+    --primary-hover-color: #0056b3;
+    --secondary-bg-color: #fff;
+    --secondary-dark-bg-color: #444;
+    --secondary-text-color: #333;
+    --secondary-dark-text-color: #fff;
+    --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

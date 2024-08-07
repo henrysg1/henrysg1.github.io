@@ -9,6 +9,12 @@ section {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark section {
+    background-color: var(--secondary-dark-bg-color);
+    color: var(--secondary-dark-text-color);
 }
 
 h2 {

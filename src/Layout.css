@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('variables.css');
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -7,9 +8,14 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--light-bg-color);
+    color: var(--light-text-color);
     transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
 }
 
 .layout {
@@ -109,14 +115,14 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: var(--light-bg-color);
 }
 
 body::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: var(--dark-bg-color);
     border-radius: 10px;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: #555;
 }

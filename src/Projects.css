@@ -1,6 +1,16 @@
+@import url('variables.css');
+
 .projects {
     padding: 20px;
     text-align: center;
+    background-color: var(--light-bg-color);
+    color: var(--light-text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark .projects {
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
 }
 
 .filter-controls {
@@ -12,14 +22,14 @@
     padding: 10px 20px;
     cursor: pointer;
     border: none;
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: white;
     border-radius: 5px;
     font-size: 16px;
 }
 
 .filter-controls button:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-hover-color);
 }
 
 .projects-list {
@@ -37,6 +47,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-text-color);
+    box-shadow: var(--box-shadow);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark .project-item {
+    border: 1px solid #555;
+    background-color: var(--secondary-dark-bg-color);
+    color: var(--secondary-dark-text-color);
 }
 
 .project-item img {
@@ -57,9 +77,20 @@
 .project-item a {
     margin-top: 10px;
     text-decoration: none;
-    color: #007bff;
+    color: var(--primary-color);
 }
 
 .project-item a:hover {
     text-decoration: underline;
+}
+
+.project-item .read-more-btn {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
 }

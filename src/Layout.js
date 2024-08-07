@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
                     </div>
                 </div>
             </header>
-            <main>{children}</main>
+            <main className={`background ${theme}`}>{children}</main>
             <footer className="footer">
                 <p>&copy; 2024 Henry Sands-Grant. All rights reserved.</p>
             </footer>

@@ -20,6 +20,8 @@ export const ThemeProvider = ({ children }) => {
     };
 
     useEffect(() => {
+        document.body.classList.remove('dark', 'light');
+        document.body.classList.add(theme);
         localStorage.setItem('theme', theme);
     }, [theme]);
 

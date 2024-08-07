@@ -34,7 +34,7 @@ const Projects = () => {
                         <img src={project.image} alt={project.title} />
                         <h3>{project.title}</h3>
                         <p>{project.description}</p>
-                        <Link to={`/project/${project.id}`}>Read more</Link>
+                        <Link to={`/project/${project.id}`} className='read-more-btn'>Read more</Link>
                     </div>
                 ))}
             </div>

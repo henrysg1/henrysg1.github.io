@@ -1,3 +1,5 @@
+@import url('variables.css');
+
 .introduction {
     padding: 20px;
     display: flex;
@@ -6,6 +8,9 @@
     text-align: center;
     width: 100%;
     max-width: 1200px;
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .about-me {
@@ -31,12 +36,17 @@
 .home-projects {
     padding: 20px;
     border-radius: 20px;
-    background-color: var(--home-projects-bg-color);
-    color: var(--home-projects-text-color);
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-text-color);
     transition: background-color 0.3s, color 0.3s;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+body.dark .home-projects, body.dark .introduction {
+    background-color: var(--secondary-dark-bg-color);
+    color: var(--secondary-dark-text-color);
 }
 
 .home-projects h2 {
@@ -52,12 +62,16 @@
     justify-content: space-between;
     border: 1px solid #ddd;
     padding: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     margin: 10px;
     border-radius: 5px;
     height: 350px;
     position: relative;
     text-align: center;
+}
+
+body.dark .home-project {
+    border: 1px solid #555;
 }
 
 .home-project img {
@@ -78,13 +92,17 @@
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
+}
+
+.home-project .read-more-btn:hover {
+    background-color: var(--primary-hover-color);
 }
 
 .custom-arrow {
@@ -97,6 +115,10 @@
     align-items: center;
     cursor: pointer;
     z-index: 10;
+}
+
+body.dark .custom-arrow {
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .custom-arrow-next {
@@ -120,6 +142,14 @@
     color: #000;
 }
 
+body.dark .slick-dots li button:before {
+    color: #fff;
+}
+
+body.dark .slick-dots li.slick-active button:before {
+    color: #fff;
+}
+
 .slick-list {
     overflow: hidden;
     margin: 0 -10px;
@@ -133,16 +163,6 @@
 
 .slick-prev, .slick-next {
     top: -20px;
-}
-
-.home.light .home-projects {
-    --home-projects-bg-color: #f0f0f0;
-    --home-projects-text-color: #000;
-}
-
-.home.dark .home-projects {
-    --home-projects-bg-color: #444;
-    --home-projects-text-color: #fff;
 }
 
 h2 {
