@@ -41,7 +41,7 @@ const Home = () => {
                 <h2>My Projects</h2>
                 <Slider {...settings}>
                     {sortedProjects.map((project) => (
-                        <div key={project.id} className="project">
+                        <div key={project.id} className="home-project">
                             <img src={project.image} alt={project.title} />
                             <h3>{project.title}</h3>
                             <p>{project.description}</p>
