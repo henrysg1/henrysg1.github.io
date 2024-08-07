@@ -37,7 +37,7 @@ const Home = () => {
                     <img src="images/henry-banner.png" alt="My Portrait" className="about-me-image" />
                 </div>
             </section>
-            <section className="projects">
+            <section className="home-projects">
                 <h2>My Projects</h2>
                 <Slider {...settings}>
                     {sortedProjects.map((project) => (

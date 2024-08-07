@@ -4,6 +4,8 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .about-me {
@@ -11,7 +13,6 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-    max-width: 1200px; /* Adjust based on your desired width */
     width: 100%;
     margin-top: 20px;
 }
@@ -28,16 +29,22 @@
     text-align: left;
 }
 
-.projects {
+.home-projects {
     padding: 20px;
     border-radius: 20px;
-    background-color: var(--projects-bg-color);
-    color: var(--projects-text-color);
+    background-color: var(--home-projects-bg-color);
+    color: var(--home-projects-text-color);
     transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.projects h2 {
-    transition: none; /* Disable transition for the h2 element */
+.home-projects h2 {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    transition: none;
 }
 
 .project {
@@ -49,8 +56,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 10px;
     border-radius: 5px;
-    height: 350px; /* Set a fixed height for the project box */
-    position: relative; /* Add position relative for absolute positioning inside */
+    height: 350px;
+    position: relative;
 }
 
 .project img {
@@ -62,17 +69,17 @@
 
 .project h3 {
     margin: 10px 0;
-    flex-grow: 1; /* Allow title to grow and take up available space */
+    flex-grow: 1;
 }
 
 .project p {
     margin: 10px 0;
-    flex-grow: 1; /* Allow description to grow and take up available space */
+    flex-grow: 1;
 }
 
 .project .read-more-btn {
     position: absolute;
-    bottom: 10px; /* Position at the bottom with some margin */
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
@@ -82,7 +89,7 @@
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none;
 }
 
 .custom-arrow {
@@ -120,11 +127,11 @@
 
 .slick-list {
     overflow: hidden;
-    margin: 0 -10px; /* Adjust to prevent overflow */
+    margin: 0 -10px;
 }
 
 .slick-slide > div {
-    margin: 0 20px; /* Adjust to prevent overflow */
+    margin: 0 20px;
     display: grid;
     place-items: center;
 }
@@ -133,18 +140,18 @@
     top: -20px;
 }
 
-.home.light .projects {
-    --projects-bg-color: #f0f0f0;
-    --projects-text-color: #000;
+.home.light .home-projects {
+    --home-projects-bg-color: #f0f0f0;
+    --home-projects-text-color: #000;
 }
 
-.home.dark .projects {
-    --projects-bg-color: #444;
-    --projects-text-color: #fff;
+.home.dark .home-projects {
+    --home-projects-bg-color: #444;
+    --home-projects-text-color: #fff;
 }
 
 h2 {
     margin: 0;
-    text-align: center; /* Center align h2 */
-    width: 100%; /* Ensure it takes full width */
+    text-align: center;
+    width: 100%;
 }
