@@ -13,16 +13,14 @@ const ProjectDetail = () => {
 
     return (
         <div className="project-details">
-            <div className="project-header">
-                <h1>{project.title}</h1>
-                <img src={`../${project.image}`} alt={project.title} className="project-image"/>
-            </div>
+            <h1>{project.title}</h1>
+            <img src={`../${project.image}`} alt={project.title} className="project-image" />
             <div className="project-description">
                 <p>{project.description}</p>
-                <p>{project.details}</p>
+                <div>{project.details}</div> {/* Render the JSX content */}
             </div>
         </div>
-    );    
+    );
 };
 
 export default ProjectDetail;

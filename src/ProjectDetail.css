@@ -31,7 +31,6 @@
 }
 
 .project-description {
-    text-align: center;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -41,7 +40,22 @@
 
 .project-description p {
     margin-bottom: 20px;
-    font-size: 1.2em;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.project-description h3, h4 {
+    text-align: center;
+}
+
+.project-description table {
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 40px;
+}
+
+.project-description th {
+    text-align: center;
 }
 
 body.light {
@@ -64,3 +78,11 @@ body.dark .project-details {
     background-color: #444;
     color: #f9f9f9;
 }
+
+.project-description img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
