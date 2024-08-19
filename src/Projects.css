@@ -67,7 +67,8 @@ body.dark .project-item {
 }
 
 .project-item h3 {
-    margin: 10px 0;
+    margin-top: 10px;
+    margin-bottom: 0px;
 }
 
 .project-item p {

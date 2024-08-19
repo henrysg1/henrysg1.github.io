@@ -1,0 +1,66 @@
+.project-details {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.project-item h3 {
+    text-align: center;
+    min-height: 88px;
+}
+
+.project-image {
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.project-description {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto; /* Ensures that description aligns from the top */
+}
+
+.project-description p {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+body.light {
+    --background-color: #f9f9f9;
+    --text-color: #333;
+}
+
+body.dark {
+    --background-color: #333;
+    --text-color: #f9f9f9;
+    --box-shadow-color: rgba(255, 255, 255, 0.1);
+}
+
+body.light .project-details {
+    background-color: #fff;
+    color: #333;
+}
+
+body.dark .project-details {
+    background-color: #444;
+    color: #f9f9f9;
+}

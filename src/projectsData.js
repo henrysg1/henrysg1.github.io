@@ -1,30 +1,30 @@
 const projectsList = [
     { id: 1, title: 'Automatic Pet-Feeder',
-        description: 'Description for project ten.',
+        description: 'Simple automatic pet feeder using a 555 timing circuit.',
         image: 'images/pet-feeder.jpg',
         details: 'Detailed information about Project Ten',
         recommended: false
     },
-    { id: 2, title: 'Replicating the F1 start light sequence using a PIC16F88 with Assembly',
-        description: 'Description for project nine.',
+    { id: 2, title: 'Replicating the F1 start light sequence using Assembly',
+        description: 'Simple Assembly program using the PIC16F88.',
         image: 'images/f1-lights.jpg',
         details: 'Detailed information about Project Nine',
         recommended: false
     },
-    { id: 3, title: 'Designing a guitar tuner using a PIC16F88 with Assembly',
-        description: 'Description for project eight.',
+    { id: 3, title: 'Designing a guitar tuner using Assembly',
+        description: 'Assembly program for frequency detection using the PIC16F88 and an aux input.',
         image: 'images/guitar-tuner.jpg',
         details: 'Detailed information about Project Eight',
         recommended: false 
     },
     { id: 4, title: 'Designing & building an autonomous line-following robot with computer vision',
-        description: 'Description for project seven.',
+        description: 'Development of embedded software and hardware to control a vehicle with 4 motors.',
         image: 'images/autonomous-vehicle.jpg',
         details: 'Detailed information about Project Seven',
         recommended: true
     },
-    { id: 5, title: 'Design, construction and testing of a fully controlled Two Switch Forward Converter with a regulated output voltage',
-        description: 'Description for project six.',
+    { id: 5, title: 'Design, construction and testing of a fully controlled Two Switch Forward Converter',
+        description: 'Two Switch Forward Converter with a regulated output voltage',
         image: 'images/converter-pcb.png',
         details: 'Detailed information about Project Six',
         recommended: false
@@ -36,7 +36,7 @@ const projectsList = [
         recommended: false
     },
     { id: 7, title: 'Doppler radar based speed detector',
-        description: 'Description for project four.',
+        description: 'Frequency detection project using FFT with an STM32 board.',
         image: 'images/doppler-radar.png',
         details: 'Detailed information about Project Four',
         recommended: false
