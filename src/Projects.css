@@ -8,13 +8,20 @@
     transition: background-color 0.3s, color 0.3s;
 }
 
+.projects h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin: 0px;
+    color: #333;
+}
+
 body.dark .projects {
     background-color: var(--dark-bg-color);
     color: var(--dark-text-color);
 }
 
 .filter-controls {
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 .filter-controls button {
