@@ -168,6 +168,11 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+
+    .header h1 {
+        font-size: 1.2em; /* Smaller header text */
+    }
+
     .header nav {
         display: none; /* Hide desktop nav */
     }

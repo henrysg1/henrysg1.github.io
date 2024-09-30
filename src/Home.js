@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,13 +9,27 @@ import { useTheme } from './ThemeContext';
 
 const Home = () => {
     const { theme } = useTheme();
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup the event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const settings = {
-        dots: true,
+        dots: windowWidth < 768 ? false : true, // Hide dots on small screens
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: windowWidth < 768 ? 1 : 3, // Show 1 slide on small screens, 3 on larger
+        slidesToScroll: windowWidth < 768 ? 1 : 3, // Scroll 1 slide on small screens, 3 on larger
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
     };

@@ -189,3 +189,39 @@ body.dark .slick-dots li.slick-active button:before {
 .slick-prev, .slick-next {
     top: -20px;
 }
+
+@media (max-width: 768px) {
+
+    .home {
+        width: 100%;
+    }
+
+    .introduction {
+        width: auto;
+    }
+
+    .home-projects {
+        width: auto;
+    }
+
+    .slick-prev, .slick-next {
+        top: -30px;
+    }
+
+    .custom-arrow-prev {
+        left: -5px;
+    }
+
+    .custom-arrow-next {
+        right: -5px;
+    }
+
+    .home-project {
+        height: 410px;
+    }
+
+    .about-me {
+        display: block;
+    }
+
+}
