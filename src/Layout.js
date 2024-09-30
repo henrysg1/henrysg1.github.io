@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from './ThemeContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,17 +7,25 @@ import './Layout.css';
 
 const Layout = ({ children }) => {
     const { theme, toggleTheme } = useTheme();
+    const [isMenuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!isMenuOpen);
+    };
 
     return (
         <div className={`layout ${theme}`}>
             <header className="header">
                 <h1>Henry Sands-Grant</h1>
                 <div className="nav-and-switch">
-                    <nav>
-                        <Link to="/">Home</Link>
-                        <Link to="/about">About</Link>
-                        <Link to="/projects">Projects</Link>
-                        <Link to="/contact">Contact</Link>
+                    <button className="menu-toggle" onClick={toggleMenu}>
+                        ☰
+                    </button>
+                    <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
+                        <Link to="/" onClick={toggleMenu}>Home</Link>
+                        <Link to="/about" onClick={toggleMenu}>About</Link>
+                        <Link to="/projects" onClick={toggleMenu}>Projects</Link>
+                        <Link to="/contact" onClick={toggleMenu}>Contact</Link>
                     </nav>
                     <div className="theme-switch">
                         <input type="checkbox" id="switch" onChange={toggleTheme} checked={theme === 'dark'} />

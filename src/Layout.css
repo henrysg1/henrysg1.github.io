@@ -24,6 +24,15 @@ body.dark {
     min-height: 100vh;
 }
 
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Hidden on desktop */
+}
+
 .header {
     background-color: #282c34;
     padding: 0px 20px;
@@ -31,6 +40,7 @@ body.dark {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .nav-and-switch {
@@ -154,4 +164,24 @@ body::-webkit-scrollbar-thumb:hover {
 
 .social-links a:hover {
     opacity: 0.7; /* Slight change on hover for effect */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .header nav {
+        display: none; /* Hide desktop nav */
+    }
+
+    .menu-toggle {
+        display: block; /* Show menu toggle button */
+    }
+
+    .nav {
+        flex-direction: column; /* Stack menu items vertically */
+        width: 100%;
+    }
+
+    .nav.open {
+        display: flex; /* Show menu when open */
+    }
 }
