@@ -102,3 +102,10 @@ body.dark .project-item {
     text-align: center;
     text-decoration: none;
 }
+
+
+@media (max-width: 768px) {
+    .filter-controls button {
+        margin-bottom: 10px;
+    }
+}
