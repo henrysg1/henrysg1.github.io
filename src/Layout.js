@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from './ThemeContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,6 +8,18 @@ import './Layout.css';
 const Layout = ({ children }) => {
     const { theme, toggleTheme } = useTheme();
     const [isMenuOpen, setMenuOpen] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const toggleMenu = () => {
         setMenuOpen(!isMenuOpen);
@@ -21,7 +33,15 @@ const Layout = ({ children }) => {
                     <button className="menu-toggle" onClick={toggleMenu}>
                         ☰
                     </button>
-                    <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
+                    {/* Desktop navigation */}
+                    <nav className="nav desktop-nav">
+                        <Link to="/">Home</Link>
+                        <Link to="/about">About</Link>
+                        <Link to="/projects">Projects</Link>
+                        <Link to="/contact">Contact</Link>
+                    </nav>
+                    {/* Mobile dropdown navigation */}
+                    <nav className={`nav dropdown-nav ${isMenuOpen ? 'open' : ''}`}>
                         <Link to="/" onClick={toggleMenu}>Home</Link>
                         <Link to="/about" onClick={toggleMenu}>About</Link>
                         <Link to="/projects" onClick={toggleMenu}>Projects</Link>

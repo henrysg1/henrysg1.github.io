@@ -24,15 +24,6 @@ body.dark {
     min-height: 100vh;
 }
 
-.menu-toggle {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    display: none; /* Hidden on desktop */
-}
-
 .header {
     background-color: #282c34;
     padding: 0px 20px;
@@ -48,10 +39,10 @@ body.dark {
     align-items: center;
 }
 
-.header nav {
-    display: flex;
+.desktop-nav {
+    display: flex; /* Always show desktop nav */
     gap: 15px;
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 .header nav a {
@@ -62,6 +53,39 @@ body.dark {
 
 .header nav a:hover {
     text-decoration: underline;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Hide on desktop */
+}
+
+.dropdown-nav {
+    display: none; /* Hide dropdown by default */
+    flex-direction: column; /* Stack links vertically */
+    position: absolute;
+    top: 50px; /* Position below header */
+    right: 0;
+    background-color: #282c34;
+    z-index: 10;
+    width: 100%; /* Full width for dropdown */
+}
+
+.dropdown-nav.open {
+    display: flex; /* Show dropdown when open */
+}
+
+.dropdown-nav a {
+    padding: 10px 20px; /* Spacing for links */
+    border-bottom: 1px solid #444; /* Divider for dropdown items */
+}
+
+.dropdown-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Hover effect */
 }
 
 .theme-switch {
@@ -178,15 +202,14 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .menu-toggle {
-        display: block; /* Show menu toggle button */
+        display: block; /* Show menu toggle button on mobile */
     }
 
-    .nav {
-        flex-direction: column; /* Stack menu items vertically */
-        width: 100%;
+    .dropdown-nav {
+        display: none; /* Hide dropdown by default */
     }
 
-    .nav.open {
-        display: flex; /* Show menu when open */
+    .dropdown-nav.open {
+        display: flex; /* Show dropdown when open */
     }
 }
