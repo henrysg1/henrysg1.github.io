@@ -80,77 +80,52 @@ const projectsList = [
         image: 'images/f1-lights.jpg',
         details: (
           <div>
-              <h3>Project Overview</h3>
-              <p>
-                The F1 start light sequence was developed as my first A-Level electronics project and is designed to replicate the F1 start light sequence using a PIC16F88 programmed with Assembly. The light system follows the same order as the F1 start sequence, and includes switches to detect jump starts.
-              </p>
-      
-              <h4>Project Specifications</h4>
-              <ul>
-                <li>
-                  <strong>Motorized Dispensing Mechanism:</strong> The feeder uses an Archimedes screw mechanism driven by a motor. The motor continues to spin until the desired amount of food has been dispensed, indicated by a push-to-make switch (PTMS) that stops the motor when the correct quantity is reached.
-                </li>
-                <li>
-                  <strong>Timing System:</strong> A 4060 IC is used to time the intervals between feedings. The system is calibrated to restart every 12 hours with a tolerance of ±3%, ensuring consistent feeding times.
-                </li>
-                <li>
-                  <strong>Food Level Detection:</strong> A sensor in the bowl detects whether there is at least 40g of food remaining. If this threshold is met, the system will skip the next feeding cycle, preventing overfeeding.
-                </li>
-                <li>
-                  <strong>Automatic Reset:</strong> If more than 40g of food remains after 12 hours, the system automatically waits for the next cycle, ensuring that food is not dispensed unnecessarily.
-                </li>
-              </ul>
-      
-              <h4>Research and Development</h4>
-              <p>
-                <strong>Initial Research:</strong> To ensure the feeder meets the dietary needs of an adult cat, research was conducted using veterinary resources, confirming that feeding twice a day is optimal. The feeder is designed to dispense between 50-70 grams of dry food per meal, with the motor stopping once 40 grams have been dispensed to allow for a slight overage.
-              </p>
-              <p>
-                <strong>Timing Circuit Design:</strong> The timing circuit, critical for the 12-hour feeding interval, was designed using a 4060 IC. This was chosen over a 555 timer due to the latter's limitations with high resistance and capacitance values. The 4060 IC provides more accurate timing for long intervals, operating within a suitable voltage range for the circuit.
-              </p>
-      
-              <h4>Circuit Design and Sub-Systems</h4>
-              <ul>
-                <li>
-                  <strong>Pulse Generator:</strong> The prototype uses a 555 timer circuit, pulsing at 0.22 Hz for testing purposes. In the final design, the circuit will be modified to pulse every 12 hours using the 4060 IC.
-                </li>
-                <li>
-                  <strong>Counter Circuit:</strong> A 4-bit binary counter (4516B IC) counts up to 12 pulses, corresponding to 12 hours. An AND gate connected to the reset pin ensures the counter resets after 12 pulses.
-                </li>
-                <li>
-                  <strong>Latch System:</strong> A 4013B Dual D-Type Flip-Flop is used to latch the output from the counter, controlling the motor via a MOSFET. This ensures that the motor only operates when necessary and resets after the food is dispensed.
-                </li>
-                <li>
-                  <strong>Motor Control:</strong> The motor is controlled by a MOSFET, which is triggered by the latch output. A protection diode is included to safeguard the circuit from reverse voltage and current, ensuring the longevity of the components.
-                </li>
-              </ul>
-      
-              <h4>Testing and Evaluation</h4>
-              <p>
-                The complete circuit was tested to verify the functionality of each subsystem. The timing circuit reliably pulsed every 12 hours, the counter correctly reset after 12 pulses, and the latch successfully controlled the motor. The motor-driven Archimedes screw dispensed the correct amount of food, stopping when the PTMS detected that the bowl was filled.
-              </p>
-              <p>
-                An evaluation revealed that while the system performed well, adding a master switch to control the entire circuit would enhance usability, allowing the user to pause the system without disconnecting the power supply.
-              </p>
-              <p>
-                The final cost of the circuit components for the project was £2.30. This low cost makes the feeder an affordable solution for cat owners seeking an automated feeding system.
-              </p>
-      
-              <h4>User Guide</h4>
-              <p>
-                In order for the system to work correctly, follow these steps:
-              </p>
-              <ol>
-                <li>Ensure that the entire circuit is connected to a power supply of 5V.</li>
-                <li>Once the power supply is connected to the circuit, it will begin timing 12 hours.</li>
-                <li>Ensure that the bowl is completely clean before the food is dropped.</li>
-                <li>Fill the Archimedes screw with your selected cat food.</li>
-                <li>Ensure that the end of the Archimedes screw is over the bowl.</li>
-              </ol>
-              <p>
-                Once you follow these initial steps, the circuit should drop food for your cat every 12 hours. Keep an eye on the amount of food in the screw, and top up when necessary.
-              </p>
-            </div>
+            <h3>Project Overview</h3>
+            <p>
+              The F1 start light sequence was developed as my first A-Level electronics project and is designed to replicate the F1 start light sequence using a PIC16F88 programmed with Assembly. The light system follows the same order as the F1 start sequence, and includes switches to detect jump starts.
+            </p>
+
+            <h4>Project Specifications</h4>
+            <ul>
+              <li><strong>F1 Start Light Sequence:</strong> The project replicates the sequential illumination of 5 LEDs, simulating the start light countdown used in Formula 1 races, followed by a randomised "lights out" phase.</li>
+              <li><strong>Programmable Timer Module System (PTMS):</strong> A jump start detection system using PTMS monitors if the "driver" (represented by a button press) reacts before the lights go out.</li>
+              <li><strong>LED Display:</strong> The countdown is displayed using a set of 5 LEDs that light up sequentially, creating a visual cue for the race start.</li>
+              <li><strong>Random Timing for Lights Out:</strong> The final phase, when the lights go out, is randomised to prevent users from predicting the timing, mimicking real-world unpredictability.</li>
+            </ul>
+
+            <h4>Research and Development</h4>
+            <p>
+              <strong>Assembly Language Programming:</strong> The system was programmed in Assembly for the PIC16F88 microcontroller. Key modules were developed to handle the timing sequences, randomisation logic, and jump start detection.
+            </p>
+            <p>
+              <strong>PIC16F88 Microcontroller:</strong> The PIC16F88 was chosen for its versatility in handling timers and interrupts, which are crucial for replicating the precise timing needed for the start light sequence and jump start detection.
+            </p>
+
+            <h4>System Design and Implementation</h4>
+            <ul>
+              <li><strong>Countdown Sequence:</strong> The system controls 5 LEDs that light up sequentially, representing the countdown phase of the F1 start. Each LED turns on at a specific interval until all are lit.</li>
+              <li><strong>Randomized Lights Out:</strong> After the final LED in the sequence is lit, a randomised timer determines when the lights go out, preventing users from memorizing the timing and improving realism.</li>
+              <li><strong>Jump Start Detection:</strong> The PTMS is used to monitor for jump starts by detecting any button presses before the lights go out. If a premature start is detected, an alert is triggered, and the race is flagged as invalid.</li>
+              <li><strong>Driver Feedback:</strong> The system can trigger visual or auditory signals to indicate a jump start, providing feedback to the user about their timing and reaction accuracy.</li>
+            </ul>
+
+            <h4>Testing and Evaluation</h4>
+            <p>
+              The system was tested extensively to ensure accurate timing of the LED sequence and to validate the jump start detection feature. The random timer for lights out was adjusted to provide unpredictable delays while maintaining fairness. The system successfully detected jump starts, and all LEDs responded correctly during the countdown phase.
+            </p>
+
+            <h4>User Guide</h4>
+            <p>To use the F1 start light sequence system:</p>
+            <ol>
+              <li>Power on the system and wait for the LED sequence to begin, simulating the F1 race start lights.</li>
+              <li>Watch as the 5 LEDs light up sequentially, representing the countdown to the start of the race.</li>
+              <li>After the final light is lit, the system will randomly trigger the "lights out" phase, indicating the start of the race.</li>
+              <li>If a jump start (premature button press) is detected, an alert will be triggered, indicating a false start.</li>
+            </ol>
+            <p>
+              The system is designed to offer a realistic simulation of the F1 start sequence, with randomisation ensuring that the lights out timing is different for each use.
+            </p>
+          </div>
         ),
         recommended: false
     },
@@ -161,13 +136,13 @@ const projectsList = [
           <div>
           <h3>Project Overview</h3>
           <p>
-            The Guitar Tuner was developed as my final A-Level electronics project, aimed at providing a reliable and accurate solution for guitarists to tune their instruments. The tuner works by amplifying the signal received from a guitar and analyzing the frequency to determine whether the guitar is in tune. The device features a visual output that indicates whether the note being played is sharp, flat, or correctly tuned. This project combines analog and digital electronics to deliver a precise and user-friendly tuning experience.
+            The Guitar Tuner was developed as my final A-Level electronics project, aimed at providing a reliable and accurate solution for guitarists to tune their instruments. The tuner works by amplifying the signal received from a guitar and analysing the frequency to determine whether the guitar is in tune. The device features a visual output that indicates whether the note being played is sharp, flat, or correctly tuned. This project combines analog and digital electronics to deliver a precise and user-friendly tuning experience.
           </p>
 
           <h4>Project Specifications</h4>
           <ul>
             <li>
-              <strong>Tuning Frequencies:</strong> The tuner is optimized for the A string at 110Hz but can also tune for G (98Hz) and B (123.47Hz) notes. The device automatically detects whether the note is sharp or flat within a tolerance of ±1Hz.
+              <strong>Tuning Frequencies:</strong> The tuner is optimised for the A string at 110Hz but can also tune for G (98Hz) and B (123.47Hz) notes. The device automatically detects whether the note is sharp or flat within a tolerance of ±1Hz.
             </li>
             <li>
               <strong>Visual Indicators:</strong> Three LEDs are used to display whether the note is sharp, flat, or in tune. The tuner filters out frequencies above 200Hz and uses a Schmitt inverter to convert the input signal into a square wave suitable for digital processing.
@@ -179,7 +154,7 @@ const projectsList = [
 
           <h4>Research and Development</h4>
           <p>
-            <strong>Initial Research:</strong> Extensive research was conducted on the frequency ranges of guitar notes to ensure accurate tuning. The project utilized resources on music theory and electronics to design a system that can detect small frequency variations and provide precise feedback to the user.
+            <strong>Initial Research:</strong> Extensive research was conducted on the frequency ranges of guitar notes to ensure accurate tuning. The project utilised resources on music theory and electronics to design a system that can detect small frequency variations and provide precise feedback to the user.
           </p>
           <p>
             <strong>Signal Processing:</strong> The tuner includes a low-pass Sallen-Key filter to attenuate unwanted high frequencies, and a Schmitt inverter to convert the analog signal into a digital one. This digital signal is then processed by a PIC16F88 microcontroller to determine the correct LED output based on the detected frequency.
@@ -229,7 +204,7 @@ const projectsList = [
         details: (<div>
           <h3>Project Overview</h3>
           <p>
-            The project "Development of a Computer Vision System for an Autonomous Vehicle" focuses on creating a reliable and functional computer vision system capable of line following and symbol recognition. The aim is to apply techniques such as color and contour detection to automate vehicle navigation. The system uses Raspberry Pi for image processing and control, alongside Arduino boards for hardware integration, enabling the vehicle to navigate through a pre-defined course without human intervention.
+            The project "Development of a Computer Vision System for an Autonomous Vehicle" focuses on creating a reliable and functional computer vision system capable of line following and symbol recognition. The aim is to apply techniques such as color and contour detection to automate vehicle navigation. The system uses Raspberry Pi for image processing and control, alongside Arduino boards for hardware integration, enabling the vehicle to navigate through an unknown course without human intervention.
           </p>
         
           <h4>Project Specifications</h4>
@@ -281,12 +256,18 @@ const projectsList = [
           <ol>
             <li>Ensure that the Raspberry Pi and Arduinos are properly powered and connected.</li>
             <li>Place the vehicle on the course with the camera facing the ground to detect the starting line.</li>
-            <li>The vehicle will follow the black line automatically. When it detects a symbol, it will adjust its behavior based on the symbol recognized.</li>
+            <li>The vehicle will follow the black line automatically. When it detects a symbol, it will adjust its behavior based on the symbol recognised.</li>
             <li>Ensure that all sub-systems such as the servo and sensors are functioning correctly before starting the course.</li>
           </ol>
           <p>
             The system should successfully follow the course, recognizing symbols and adjusting accordingly to complete the tasks autonomously.
           </p>
+
+          <h4>Project Repository</h4>
+          <p>
+            The full project, including the source code and documentation, can be found on GitHub <a href="https://github.com/henrysg1/autonomous-vehicle-with-cv" target="_blank" rel="noopener noreferrer">here</a>.
+          </p>
+
         </div>
         ),
         recommended: true
@@ -297,7 +278,7 @@ const projectsList = [
         details: (<div>
           <h3>Project Overview</h3>
           <p>
-            This project focuses on the design and analysis of a 2-Switch Forward Converter. The converter is designed to meet specific input and output requirements and is tested under both ideal and non-ideal conditions using PLECS simulation software. The report explores both theoretical calculations and practical simulations, addressing real-world challenges such as parasitic components, transformer windings resistance, and Equivalent Series Resistance (ESR) in capacitors. These factors are analyzed to highlight the impact of non-ideal components on converter performance.
+            This project focuses on the design and analysis of a 2-Switch Forward Converter. The converter is designed to meet specific input and output requirements and is tested under both ideal and non-ideal conditions using PLECS simulation software. This project explores both theoretical calculations and practical simulations, addressing real-world challenges such as parasitic components, transformer windings resistance, and Equivalent Series Resistance (ESR) in capacitors. These factors are analysed to highlight the impact of non-ideal components on converter performance.
           </p>
         
           <h4>Project Specifications</h4>
@@ -364,53 +345,53 @@ const projectsList = [
         details: (<div>
           <h3>Project Overview</h3>
           <p>
-            The "EEEE2046 Electronics Project – Filter Design Coursework" aims to explore and analyze various types of analogue filters, focusing on their advantages, disadvantages, and practical applications. The project involves designing a multiple-order Butterworth high-pass filter, calculating relevant component values, and simulating the design using both ideal and practical components. The coursework emphasizes the understanding of filter characteristics and their implementations in real-world scenarios, making it essential for applications in signal processing and electronics.
+            The Doppler-Radar Speed Detection System explores the use of analog filters in a radar-based speed detection system. The project involves the design and implementation of multiple-order filters, such as Butterworth and Chebyshev filters, in combination with an STM32 microcontroller to process signals from a Doppler radar sensor. The system analyses frequency shifts caused by moving objects, calculating their speed by filtering out noise and isolating the relevant Doppler frequency components.
           </p>
           
           <h4>Project Specifications</h4>
           <ul>
             <li>
-              <strong>Filter Types:</strong> The project investigates Butterworth, Chebyshev, and Bessel filters, each with unique properties, roll-off rates, and applications, such as audio processing and data conversion.
+              <strong>Filter Types:</strong> The system utilises various filters, including Butterworth and Chebyshev filters, to process signals from the radar. These filters are chosen for their unique properties, such as smooth pass-band characteristics in Butterworth filters and rapid roll-off in Chebyshev filters, to enhance the accuracy of speed detection.
             </li>
             <li>
-              <strong>Design Goals:</strong> A multiple-order Butterworth high-pass filter is designed to achieve a specified cut-off frequency, utilizing ideal calculations and simulations to validate performance.
+              <strong>Signal Processing Goals:</strong> The filters are designed to remove unwanted noise and low-frequency components, isolating the Doppler-shifted signal corresponding to the speed of a moving object.
             </li>
             <li>
-              <strong>Component Analysis:</strong> The coursework includes selecting and simulating E24 series components, assessing their impact on filter performance, and ensuring suitability for the intended design.
+              <strong>Component Integration:</strong> The project integrates an STM32 microcontroller with radar sensors, utilising the filters for real-time signal processing to compute the speed of objects based on frequency shifts.
             </li>
           </ul>
           
           <h4>Research and Development</h4>
           <p>
-            <strong>Filter Analysis:</strong> The report details the characteristics of each filter type, including the benefits of a flat pass-band in Butterworth filters, the fast roll-off of Chebyshev filters, and the superior transient response of Bessel filters. These analyses guide the design choices made in the coursework.
+            <strong>Filter Analysis:</strong> The project investigates the role of different filters in signal processing for Doppler radar systems. Butterworth filters are used for their smooth frequency response, while Chebyshev filters are selected for sharper roll-off to more precisely isolate Doppler frequencies.
           </p>
           <p>
-            <strong>Simulation Techniques:</strong> Both AC and transient response simulations are conducted to evaluate filter performance across a range of frequencies, ensuring the design meets the required specifications for cut-off and gain.
+            <strong>Signal Simulation and Testing:</strong> Various simulations and tests were conducted to ensure that the filters effectively process radar signals. Both AC and transient response simulations were used to evaluate how well the filters isolate the Doppler frequency shifts needed to measure speed accurately.
           </p>
           
           <h4>Circuit Design and Component Integration</h4>
           <ul>
             <li>
-              <strong>High-Pass Filter Design:</strong> The coursework includes detailed calculations for the component values required to achieve the desired filter characteristics, with emphasis on using standard E24 components.
+              <strong>Filter Design:</strong> The design of the filters, including component selection, was critical to achieving the desired cutoff frequencies. The filter design focused on separating noise from the Doppler signal, ensuring accurate frequency detection.
             </li>
             <li>
-              <strong>Amplification Addition:</strong> Strategies for incorporating gain into the filter design are discussed, with circuit diagrams provided to illustrate modifications to the basic filter structure.
+              <strong>STM32 Integration:</strong> The STM32 microcontroller was programmed to receive filtered radar data and calculate the object's speed in real time, based on the frequency shift detected by the radar system.
             </li>
             <li>
-              <strong>Simulation Results:</strong> The report presents results from both ideal and realistic simulations, showcasing the expected amplitude responses and cut-off frequencies.
+              <strong>Testing Results:</strong> Simulations and real-world tests demonstrated the filter’s ability to isolate relevant frequencies for accurate speed detection, meeting the system's performance requirements.
             </li>
           </ul>
           
           <h4>Testing and Evaluation</h4>
           <p>
-            The filter designs were evaluated through simulation, revealing performance metrics such as the amplitude response and transient behaviors at various frequencies. Results indicate that the designed Butterworth filter meets the specified criteria, demonstrating effective attenuation and a defined cut-off point.
+            The Doppler radar system was tested with a variety of objects moving at different speeds to evaluate the filter’s performance. The filters effectively attenuated noise and unwanted frequencies, allowing the STM32 to accurately compute the speed of objects based on Doppler shifts. Both simulation and hardware testing confirmed the system’s reliability and accuracy.
           </p>
           
           <h4>Conclusion</h4>
           <p>
-            The coursework successfully achieves its objectives, providing insights into the design and application of various analogue filters. The simulations validate the theoretical calculations, highlighting the importance of component selection and circuit design in achieving desired filter characteristics.
+            The project successfully integrates analog filters with a Doppler radar and STM32 microcontroller for speed detection. The filter designs are validated through simulations and tests, proving their effectiveness in isolating Doppler frequencies and enabling accurate speed measurements. This project highlights the importance of proper filter design in real-world applications such as radar-based speed detection systems.
           </p>
-        </div>
+        </div>        
         ),
         recommended: false
     },
@@ -459,23 +440,12 @@ const projectsList = [
       
         <h4>Testing and Evaluation</h4>
         <p>
-          The app was tested across multiple devices and operating systems to ensure compatibility and accuracy of its scanning and recognition features. Real-world tests were conducted with a variety of recycling symbols and barcodes to confirm the robustness of the system in various lighting and environmental conditions.
+          The app has been tested across multiple devices and operating systems to ensure compatibility and accuracy of its scanning and recognition features. Real-world tests were conducted with a variety of recycling symbols and barcodes to confirm the robustness of the system in various lighting and environmental conditions.
         </p>
         <p>
-          Evaluation of the machine learning model showed significant improvement in symbol recognition after training on a diverse dataset. The API integration was also validated, ensuring seamless retrieval of local recycling policies based on the user’s location.
+          Evaluation of the machine learning model showed significant improvement in symbol recognition after training on a diverse dataset. The API integration was also validated, ensuring seamless retrieval of local recycling policies based on the user’s location. Further training will be needed before the application is ready for public release.
         </p>
         
-        <h4>User Guide</h4>
-        <p>
-          To use E-Recycle, follow these steps:
-        </p>
-        <ol>
-          <li>Download the app from the Apple App Store or Google Play Store.</li>
-          <li>Allow the app to access your device's camera and location for optimal functionality.</li>
-          <li>Scan the barcode or recycling symbol on the product packaging using your device’s camera.</li>
-          <li>Review the recycling instructions provided, which are tailored to your local council's policies.</li>
-          <li>In case of unrecognized products, manually input the product details to contribute to the database.</li>
-        </ol>
         <p>
           E-Recycle will guide you through the correct disposal process for each scanned product, ensuring compliance with local recycling rules.
         </p>
@@ -489,7 +459,7 @@ const projectsList = [
         details: (<div>
           <h3>Project Overview</h3>
           <p>
-            The project "DC-DC Converter for Solar Car" focuses on the design and development of a highly efficient DC-DC converter for the University of Nottingham's solar race car. The converter is designed to step down the vehicle's battery voltage from 600V to 12V, enabling the safe and efficient powering of low-voltage components within the car. The design prioritizes compactness, efficiency, and safety, incorporating features like overvoltage and overcurrent protection, along with thermal shutdown.
+            This project focuses on the design and development of a highly efficient DC-DC converter for the University of Nottingham's solar race car. The converter is designed to step down the vehicle's battery voltage from 600V to 12V, enabling the safe and efficient powering of low-voltage components within the car. The design prioritises compactness, efficiency, thermal management and safety, incorporating features like overvoltage and overcurrent protection, along with thermal shutdown.
           </p>
         
           <h4>Project Specifications</h4>
@@ -499,12 +469,12 @@ const projectsList = [
             <li><strong>Output Current:</strong> Up to 50A</li>
             <li><strong>Efficiency:</strong> Greater than 90%</li>
             <li><strong>Protection:</strong> Overvoltage, Overcurrent, Thermal Shutdown</li>
-            <li><strong>Compact PCB Design:</strong> Optimized for space and efficiency</li>
+            <li><strong>Compact PCB Design:</strong> Optimised for space and efficiency, while compensating for thermal effects</li>
           </ul>
         
           <h4>Research and Development</h4>
           <p>
-            <strong>Design and Simulation:</strong> The converter design, implemented using KiCad, has undergone thorough testing and verification in the solar car to ensure functionality and performance. The schematic and PCB layout are optimized for efficient energy conversion and high current handling.
+            <strong>Design and Simulation:</strong> The converter design, implemented using KiCad, has undergone thorough testing and verification in the solar car to ensure functionality and performance. The schematic and PCB layout are optimised for efficient energy conversion and high current handling.
           </p>
           <p>
             <strong>Component Selection:</strong> The design incorporates high-quality components, including inductors, capacitors, and fuses, to ensure smooth operation and protect both the input and output stages. Modules like the DCM3623T5N13B4T00 DC-DC converter are key to handling the conversion from high to low voltage.
@@ -515,12 +485,12 @@ const projectsList = [
             <li><strong>Input Section:</strong> Includes connectors and fuses to handle and protect the high-voltage 600V input.</li>
             <li><strong>Relay Control:</strong> A relay and diode system manages the activation of the converter, with additional protection against voltage spikes.</li>
             <li><strong>Primary Conversion Stage:</strong> LC filters and current-sensing resistors smooth the input voltage before the main conversion takes place.</li>
-            <li><strong>Output Section:</strong> Further filters and stabilizes the 12V output with inductors, capacitors, and fuses to ensure safe and reliable power delivery.</li>
+            <li><strong>Output Section:</strong> Further filters stabilise the 12V output with inductors, capacitors, and fuses to ensure safe and reliable power delivery.</li>
           </ul>
         
           <h4>Testing and Evaluation</h4>
           <p>
-            The PCB design has been successfully manufactured, tested, and implemented in the solar car. The system has been verified to work as intended, with an efficiency of over 90%, meeting the design goals of the project. Key considerations such as trace widths, thermal management, and voltage isolation have been optimized to handle the high-current demands and ensure reliable operation in the race environment.
+            The PCB design has been successfully manufactured, tested, and implemented in the solar car. The system has been verified to work as intended, with an efficiency of over 90%, meeting the design goals of the project. Key considerations such as trace widths, thermal management, and voltage isolation have been optimised to handle the high-current demands and ensure reliable operation in the race environment.
           </p>
         
           <h4>User Guide</h4>
@@ -535,13 +505,19 @@ const projectsList = [
           
           <h4>License</h4>
           <p>
-            This project is licensed under the MIT License. Refer to the LICENSE file for further details.
+            This project is licensed under the MIT License.
           </p>
           
           <h4>Acknowledgments</h4>
           <p>
             Special thanks to the University of Nottingham Solar Race Team and the KiCad Community for their support and contributions.
           </p>
+
+          <h4>Project Repository</h4>
+          <p>
+            The full project, including the design files and documentation, can be found on GitHub <a href="https://github.com/henrysg1/solar-car-dcdc" target="_blank" rel="noopener noreferrer">here</a>.
+          </p>
+
         </div>
         ),
         recommended: true
@@ -552,7 +528,7 @@ const projectsList = [
         details: (<div>
           <h3>Project Overview</h3>
           <p>
-            The project "Strategic Energy Management System for the Solar Racing Car" focuses on designing an advanced energy management system for the University of Nottingham’s solar race car. The system is developed to optimize energy consumption during the 2023 Bridgestone World Solar Challenge. It calculates the optimal speed and energy use based on pre-existing data, such as terrain and weather conditions, while adjusting strategies in real time using sensor data collected during the race. The goal is to ensure the car completes the race as efficiently as possible without exhausting energy resources.
+            The project "Strategic Energy Management System for the Solar Racing Car" focuses on designing an advanced energy management system for the University of Nottingham’s solar race car. The system is developed to optimise energy consumption during the 2023 Bridgestone World Solar Challenge. It calculates the optimal speed and energy use based on pre-existing data, such as terrain and weather conditions, while adjusting strategies in real time using sensor data collected during the race. The goal is to ensure the car completes the race as efficiently as possible without exhausting energy resources.
           </p>
         
           <h4>Project Specifications</h4>
@@ -560,7 +536,7 @@ const projectsList = [
             <li><strong>Input Data:</strong> The system integrates real-time data from sensors, including solar energy input, wind speed, and road slope, with pre-race data for accurate prediction and real-time adjustments.</li>
             <li><strong>Prediction Model:</strong> A predictive model that calculates the optimal speed and strategy based on terrain and solar input data before the race starts.</li>
             <li><strong>Real-Time Model:</strong> This model uses live sensor data from the car to update strategies and adjust speed and energy consumption dynamically during the race.</li>
-            <li><strong>Communication System:</strong> Utilizes a communication link between the solar car and a chase car for real-time data sharing and strategy updates.</li>
+            <li><strong>Communication System:</strong> Utilises a communication link between the solar car and a chase car for real-time data sharing and strategy updates.</li>
             <li><strong>Driver Interface:</strong> A dashboard display provides the driver with critical information such as optimal speed, state-of-charge (SoC), and other performance metrics.</li>
           </ul>
         
@@ -598,6 +574,12 @@ const projectsList = [
           <p>
             The system is designed to help the solar car achieve the best performance while maintaining energy efficiency throughout the entire race course.
           </p>
+
+          <h4>Project Repository</h4>
+          <p>
+            The full project, including the source code and documentation, can be found on GitHub <a href="https://github.com/henrysg1/solar-race-strategy" target="_blank" rel="noopener noreferrer">here</a>.
+          </p>
+
         </div>
         ),
         recommended: true
@@ -608,7 +590,7 @@ const projectsList = [
         details: (<div>
           <h3>Project Overview</h3>
           <p>
-            The project "Prosthetic Arm Prototype" developed by NeuroTech Biowares Ltd. focuses on designing a fully functional prosthetic arm powered by Electromyographic (EMG) signals. The project includes the development of a printed circuit board (PCB) that integrates various sensors, microcontrollers, and power systems. This prototype aims to replicate the functionality of earlier breadboard designs, with improvements such as a dedicated battery system and enhanced modularity. The documentation outlines the design decisions, component selection, testing, and suggestions for future revisions.
+            This project focuses on designing a fully functional prosthetic arm powered by Electromyographic (EMG) signals. The project includes the development of a printed circuit board (PCB) that integrates various sensors, microcontrollers, and power systems. This prototype aims to replicate the functionality of earlier breadboard designs, with improvements such as a dedicated battery system and enhanced modularity.
           </p>
         
           <h4>Project Specifications</h4>
@@ -629,7 +611,7 @@ const projectsList = [
         
           <h4>Component Integration and Design Considerations</h4>
           <ul>
-            <li><strong>EMG Signal Sensor:</strong> The Walfront EMG sensor captures muscle signals and converts them into control signals for the prosthetic arm. The PCB was designed to minimize noise and ensure high signal quality by using short, thin traces and ground planes to reduce interference.</li>
+            <li><strong>EMG Signal Sensor:</strong> The Walfront EMG sensor captures muscle signals and converts them into control signals for the prosthetic arm. The PCB was designed to minimise noise and ensure high signal quality by using short, thin traces and ground planes to reduce interference.</li>
             <li><strong>Arduino Nano:</strong> This microcontroller powers the system and connects to various input/output devices, such as the EMG sensor, RGB LED, and servo motor driver.</li>
             <li><strong>PCA9685 Servo Driver:</strong> A servo driver allows the prosthetic to control multiple servos via pulse-width modulation (PWM). It is integrated into the system to drive the prosthetic’s motor movements.</li>
             <li><strong>RGB LED and Button:</strong> The RGB LED provides visual feedback on system status, while the button allows users to change operation modes. Both components are connected to the Arduino Nano for easy programmability.</li>
@@ -645,7 +627,7 @@ const projectsList = [
         
           <h4>Future Considerations</h4>
           <p>
-            Suggestions for future revisions include adjustments to the footprints of certain components for better fit, improved power switch operation, and enhanced modularity of the PCB layout. Considerations such as adding thermal vias and optimizing the board for improved heat dissipation are also recommended.
+            Suggestions for future revisions include adjustments to the footprints of certain components for better fit, improved power switch operation, and enhanced modularity of the PCB layout. Considerations such as adding thermal vias and optimising the board for improved heat dissipation are also recommended.
           </p>
         
           <h4>User Guide</h4>
@@ -667,7 +649,7 @@ const projectsList = [
         details: (<div>
           <h3>Project Overview</h3>
           <p>
-            The project "Simple Calculator Using VHDL on Basys 3 Board" focuses on implementing a basic calculator that can perform arithmetic operations such as addition, subtraction, multiplication, and division. The calculator is programmed using VHDL (VHSIC Hardware Description Language) and operates on binary numbers selected through switches on the Basys 3 FPGA development board. The results of the operations are displayed on the board's 7-segment displays. The system supports both positive and negative numbers and ensures that results are saturated when the values exceed the displayable range.
+            The simple project focuses on implementing a basic calculator that can perform arithmetic operations such as addition, subtraction, multiplication, and division. The calculator is programmed using VHDL (VHSIC Hardware Description Language) and operates on binary numbers selected through switches on the Basys 3 FPGA development board. The results of the operations are displayed on the board's 7-segment displays. The system supports both positive and negative numbers and ensures that results are saturated when the values exceed the displayable range.
           </p>
         
           <h4>Project Specifications</h4>
@@ -720,7 +702,7 @@ const projectsList = [
         details: (<div>
           <h3>Project Overview</h3>
           <p>
-            The project "Developing an Open-Source Mission Control Software Framework to Communicate with a CubeSat" focuses on designing a mission control software (MCS) solution for CubeSat missions. The MCS framework is developed to be an open-source, cost-effective alternative to existing proprietary mission control systems, offering scalability, flexibility, and ease of integration for small space teams. The framework follows the Packet Utilisation Standard (PUS), widely adopted for satellite communications, and integrates support for the AstroDev Lithium-2 radio and a custom satellite emulator for testing and validation purposes.
+            My final year thesis project, "Developing an Open-Source Mission Control Software Framework to Communicate with a CubeSat", focuses on designing a mission control software (MCS) solution for CubeSat missions. The MCS framework is developed to be an open-source, cost-effective alternative to existing proprietary mission control systems, offering scalability, flexibility, and ease of integration for small space teams. The framework follows the Packet Utilisation Standard (PUS), widely adopted for satellite communications, and integrates support for the AstroDev Lithium-2 radio and a custom satellite emulator for testing and validation purposes.
           </p>
         
           <h4>Project Specifications</h4>
@@ -767,6 +749,22 @@ const projectsList = [
             <li>Use the web interface to send commands and monitor real-time telemetry data from the satellite or emulator.</li>
           </ol>
           <p>For detailed instructions on system setup and usage, refer to the project documentation included in the repository.</p>
+        
+          <h4>License</h4>
+          <p>
+            This project is licensed under the GPL-3.0 License.
+          </p>
+          
+          <h4>Acknowledgments</h4>
+          <p>
+            Special thanks to the University of Nottingham's WormSail and AstroJam space teams.
+          </p>
+
+          <h4>Project Repository</h4>
+          <p>
+            The full project, including the source code and documentation, can be found on GitHub <a href="https://github.com/henrysg1/CubeSatMCS" target="_blank" rel="noopener noreferrer">here</a>.
+          </p>
+        
         </div>
         ),
         recommended: true
@@ -777,49 +775,63 @@ const projectsList = [
       details: (<div>
         <h3>Project Overview</h3>
         <p>
-          The project "Recipe Browsing System on ESP32 with LVGL" focuses on creating an intuitive user interface for browsing recipes on an ESP32 microcontroller equipped with a touch screen. The user interface is developed using the LVGL graphics library and includes interactive elements such as buttons for navigating between pages of recipes, and tiles that display a recipe’s image and title. The system efficiently handles a larger number of recipes than can fit on a single page, providing an easy-to-use browsing experience.
+          The "CookCompanion" project is a smart cooking assistant built on an ESP32 with a 7-inch touch display using the LVGL graphics library. The device is designed to fetch and display recipes from a remote database via an API, offering step-by-step interactive instructions to help users follow recipes with ease. The project aims to make cooking more engaging and organised by providing additional features such as recipe favouriting, shopping list generation, and recipe rating. The application is developed in C, with ongoing work to add more functionality and refine the user interface.
         </p>
-      
+        
         <h4>Project Specifications</h4>
         <ul>
-          <li><strong>Recipe Display:</strong> Each page of the system shows up to 8 recipes at a time, with each recipe represented by a tile containing an image and a title.</li>
-          <li><strong>Navigation:</strong> Users can browse through multiple pages of recipes using "Next" and "Previous" buttons. Each button press updates the tile content to show the next or previous set of recipes.</li>
-          <li><strong>Touch Screen Interaction:</strong> The touch screen interface allows users to interact with the system by pressing buttons to navigate between pages.</li>
-          <li><strong>Dynamic Content Update:</strong> The system updates the displayed recipe titles and images dynamically as the user navigates between pages, ensuring a smooth user experience.</li>
+          <li>
+            <strong>ESP32 and Touch Display:</strong> The project uses an ESP32 microcontroller paired with a 7-inch touch display, leveraging the LVGL library for a user-friendly graphical interface.
+          </li>
+          <li>
+            <strong>Recipe Database and API:</strong> CookCompanion connects to an online recipe database via an API to fetch and display a wide variety of recipes. The API allows real-time fetching of recipe details, including ingredients, instructions, and images.
+          </li>
+          <li>
+            <strong>Step-by-Step Instructions:</strong> Recipes are presented in an interactive step-by-step format on the touch display, making it easier for users to follow the instructions while cooking.
+          </li>
+          <li>
+            <strong>Favorite Recipes:</strong> Users can save their favorite recipes for quick access later, allowing them to build a personal recipe collection directly on the device.
+          </li>
+          <li>
+            <strong>Shopping List Creation:</strong> From selected recipes, users can automatically generate a shopping list, helping them prepare by listing all necessary ingredients in one place.
+          </li>
+          <li>
+            <strong>Recipe Rating:</strong> Users can rate recipes after trying them, enabling the application to track popular dishes and improve recommendations.
+          </li>
         </ul>
       
         <h4>Research and Development</h4>
         <p>
-          <strong>LVGL Integration:</strong> The user interface is built using the LVGL (Light and Versatile Graphics Library), which provides powerful tools for creating complex UIs on microcontrollers like the ESP32. The LVGL widgets are used to display images and text for each recipe, and the layout is optimized for touch screen interaction.
+          <strong>Touch Interface Development:</strong> The LVGL library was used to create an intuitive and responsive touch interface on the 7-inch display. The user interface allows for easy navigation between recipes, shopping lists, and user preferences, with real-time responsiveness provided by the ESP32.
         </p>
         <p>
-          <strong>ESP32 Platform:</strong> The ESP32 serves as the primary controller for this project, handling the display, touch input, and logic for navigating between pages. It processes input from the touch screen to determine when a user presses the "Next" or "Previous" buttons, and updates the tiles accordingly.
+          <strong>API Integration:</strong> The system fetches recipe data from a remote API, which includes real-time calls to retrieve recipe ingredients, steps, and images. JSON parsing is implemented in C to decode and display this data on the touch display.
         </p>
-      
-        <h4>System Design and Implementation</h4>
+        
+        <h4>System Design and Features</h4>
         <ul>
-          <li><strong>Tile Layout:</strong> The display is divided into 8 tiles per page, with each tile showing a recipe’s image and title. The system supports more recipes than can be shown on a single page, and the displayed recipes are updated dynamically as users navigate.</li>
-          <li><strong>Navigation System:</strong> Two buttons are placed on the screen to allow users to navigate between recipe pages. The buttons trigger the <code>NextBrowse</code> and <code>PreviousBrowse</code> functions, which update the displayed recipes.</li>
-          <li><strong>Dynamic Recipe Loading:</strong> The system keeps track of the current page of recipes being displayed. When the user presses the "Next" or "Previous" button, the system calculates which recipes to display and updates the content of each tile.</li>
-          <li><strong>Memory Management:</strong> The images for recipes are stored as C arrays and are loaded dynamically based on the recipe that is being displayed. This ensures efficient memory usage on the ESP32 while handling multiple recipe images.</li>
+          <li><strong>ESP32 Integration:</strong> The ESP32 microcontroller handles all core operations, including Wi-Fi connectivity, API communication, and graphical display updates. It is programmed in C, ensuring efficient performance and responsiveness.</li>
+          <li><strong>Touch Screen Interaction:</strong> The touch interface allows users to swipe through recipes, select ingredients, and mark steps as completed. The LVGL library supports custom animations and touch events to enhance user interaction.</li>
+          <li><strong>Database Connectivity:</strong> The project relies on a cloud-based recipe database, accessed via API, enabling the device to retrieve fresh content and updates in real-time.</li>
+          <li><strong>Future Expansion:</strong> Planned features include voice integration and personalized recommendations based on user preferences and previous interactions with recipes.</li>
         </ul>
       
         <h4>Testing and Evaluation</h4>
         <p>
-          The system was tested by navigating through various sets of recipes using the touch screen interface. The dynamic tile updating worked seamlessly, with each page displaying the correct images and titles. The system handled multiple pages of recipes smoothly, with no lag or crashes, ensuring a user-friendly experience.
+          The system has undergone initial testing, with the user interface fully functional on the touch display. The API integration is working, allowing real-time recipe fetching, and basic interactions such as recipe favoriting and shopping list creation have been successfully implemented. Further testing will focus on refining the performance and adding more interactivity.
         </p>
-      
-        <h4>User Guide</h4>
-        <p>To use the recipe browsing system on the ESP32 touch screen:</p>
-        <ol>
-          <li>Browse through the available recipes using the "Next" and "Previous" buttons displayed on the touch screen.</li>
-          <li>Each page will display up to 8 recipes with their images and titles.</li>
-          <li>Navigate between different pages of recipes by pressing the buttons to load new sets of recipes.</li>
-        </ol>
+        
+        <h4>Project Status and Future Work</h4>
         <p>
-          The recipe browsing system provides a simple and intuitive interface, allowing users to easily scroll through multiple recipes and quickly find the one they are looking for.
+          CookCompanion is currently in progress, with ongoing development focused on improving the user experience, expanding the database interaction, and adding more personalization features. Future updates will also include more advanced features such as voice commands, enhanced user ratings, and personalized recipe suggestions.
         </p>
-      </div>
+
+        <h4>Project Repository</h4>
+          <p>
+            The full project, including the source code and documentation, can be found on GitHub <a href="https://github.com/henrysg1/cooking-screen" target="_blank" rel="noopener noreferrer">here</a>.
+          </p>
+
+      </div>      
       ),
       recommended: true
     }

@@ -80,6 +80,10 @@ body.dark section {
     text-align: left;
 }
 
+.experience-details img {
+    background-color: white;
+}
+
 ul {
     padding-left: 20px;
     font-size: 18px;

@@ -206,6 +206,10 @@ body.dark .slick-dots li.slick-active button:before {
         height: 410px; /* Maintain height on mobile */
     }
 
+    .home-project h3 {
+        height: 82px;
+    }
+
     .about-me {
         display: block;
     }

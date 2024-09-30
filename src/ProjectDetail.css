@@ -90,3 +90,8 @@ body.dark .project-details {
     margin: 20px 0;
 }
 
+@media (max-width: 768px) {
+    .project-image {
+        width: 100%;
+    }
+}
