@@ -31,8 +31,13 @@ body.dark {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    position: sticky; /* Change from relative to sticky */
+    top: 0; /* Sticks the header to the top */
+    z-index: 1000; /* Ensure it's above other content */
+    /* Optional shadow effect for better visibility */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 
 .nav-and-switch {
     display: flex;
@@ -161,6 +166,18 @@ body::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 
+body.dark::-webkit-scrollbar-track {
+    background: var(--dark-bg-color);
+}
+
+body.dark::-webkit-scrollbar-thumb {
+    background: var(--light-bg-color);
+}
+
+body.dark::-webkit-scrollbar-thumb:hover {
+    background: #f9f9f9;
+}
+
 .footer {
     background-color: #282c34;
     color: white;
@@ -214,5 +231,9 @@ body::-webkit-scrollbar-thumb:hover {
 
     .theme-switch.mobile {
         margin-right: 10px; /* Space between theme switch and menu toggle */
+    }
+
+    .theme-switch {
+        height: 20px;
     }
 }
