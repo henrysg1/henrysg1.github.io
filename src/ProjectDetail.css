@@ -10,6 +10,10 @@
     align-items: center;
 }
 
+.project-details h1 {
+    text-align: center;
+}
+
 .project-header {
     display: flex;
     flex-direction: column;
