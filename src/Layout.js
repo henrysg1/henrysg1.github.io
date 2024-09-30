@@ -30,6 +30,15 @@ const Layout = ({ children }) => {
             <header className="header">
                 <h1>Henry Sands-Grant</h1>
                 <div className="nav-and-switch">
+                    {/* Desktop theme switch on the right */}
+                    {windowWidth < 768 && (
+                        <div className="theme-switch">
+                            <input type="checkbox" id="desktop-switch" onChange={toggleTheme} checked={theme === 'dark'} />
+                            <label htmlFor="desktop-switch" className="switch-label">
+                                <span className="switch-button"></span>
+                            </label>
+                        </div>
+                    )}
                     <button className="menu-toggle" onClick={toggleMenu}>
                         ☰
                     </button>
@@ -47,12 +56,15 @@ const Layout = ({ children }) => {
                         <Link to="/projects" onClick={toggleMenu}>Projects</Link>
                         <Link to="/contact" onClick={toggleMenu}>Contact</Link>
                     </nav>
-                    <div className="theme-switch">
-                        <input type="checkbox" id="switch" onChange={toggleTheme} checked={theme === 'dark'} />
-                        <label htmlFor="switch" className="switch-label">
-                            <span className="switch-button"></span>
-                        </label>
-                    </div>
+                    {/* Mobile theme switch on the left */}
+                    {windowWidth >= 768 && (
+                        <div className="theme-switch mobile">
+                            <input type="checkbox" id="mobile-switch" onChange={toggleTheme} checked={theme === 'dark'} />
+                            <label htmlFor="mobile-switch" className="switch-label">
+                                <span className="switch-button"></span>
+                            </label>
+                        </div>
+                    )}
                 </div>
             </header>
             <main className={`background ${theme}`}>{children}</main>

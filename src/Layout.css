@@ -192,7 +192,6 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Mobile styles */
 @media (max-width: 768px) {
-
     .header h1 {
         font-size: 1.2em; /* Smaller header text */
     }
@@ -211,5 +210,9 @@ body::-webkit-scrollbar-thumb:hover {
 
     .dropdown-nav.open {
         display: flex; /* Show dropdown when open */
+    }
+
+    .theme-switch.mobile {
+        margin-right: 10px; /* Space between theme switch and menu toggle */
     }
 }
