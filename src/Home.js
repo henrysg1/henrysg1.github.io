@@ -27,9 +27,9 @@ const Home = () => {
     return (
         <div className={`home ${theme}`}>
             <section className="introduction">
+                <h2>About Me</h2>
                 <div className="about-me">
                     <div className="about-me-text">
-                        <h2>About Me</h2>
                         <p>Welcome to my personal website. I am a software engineer with experience in building web applications and developing embedded software. 
                            I am also interested in hardware engineering, gaining experience in industry and at university where I studied Electronic Engineering. 
                            Here you can find some of the projects I have worked on.</p>

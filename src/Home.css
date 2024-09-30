@@ -4,13 +4,25 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: justify;
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text for header */
     width: 100%;
     max-width: 1200px;
     background-color: var(--secondary-bg-color);
     color: var(--secondary-text-color);
     transition: background-color 0.3s, color 0.3s;
+}
+
+.home-projects {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-text-color);
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center; /* Center text for header */
 }
 
 .about-me {
@@ -21,16 +33,23 @@
     width: 100%;
 }
 
+.about-me-text {
+    text-align: justify; /* Center text in About Me */
+}
+
+.home h2 {
+    font-size: 2.5em;
+    margin: 0;
+    margin-bottom: -55px;
+    width: 100%; /* Make sure it spans the full width for alignment */
+}
+
+
 .about-me-image {
     width: 250px;
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
-}
-
-.about-me-text {
-    max-width: 750px;
-    text-align: justify;
 }
 
 .home-projects {
@@ -167,10 +186,4 @@ body.dark .slick-dots li.slick-active button:before {
 
 .slick-prev, .slick-next {
     top: -20px;
-}
-
-h2 {
-    margin: 0;
-    text-align: center;
-    width: 100%;
 }

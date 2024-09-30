@@ -126,3 +126,32 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+.footer {
+    background-color: #282c34;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Center the items in the footer */
+    align-items: center; /* Center items vertically */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.footer p {
+    margin-bottom: 10px; /* Add some space below the copyright text */
+}
+
+.social-links {
+    display: flex;
+    gap: 10px; /* Reduce the space between icons */
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px; /* Size of the icons */
+}
+
+.social-links a:hover {
+    opacity: 0.7; /* Slight change on hover for effect */
+}

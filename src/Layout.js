@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from './ThemeContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import './Layout.css';
 
 const Layout = ({ children }) => {
@@ -28,6 +30,14 @@ const Layout = ({ children }) => {
             <main className={`background ${theme}`}>{children}</main>
             <footer className="footer">
                 <p>&copy; 2024 Henry Sands-Grant. All rights reserved.</p>
+                <div className="social-links">
+                    <a href="https://github.com/henrysg1" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faGithub} />
+                    </a>
+                    <a href="https://linkedin.com/in/henry-sands-grant" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faLinkedin} />
+                    </a>
+                </div>
             </footer>
         </div>
     );
