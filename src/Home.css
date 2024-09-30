@@ -46,28 +46,11 @@
     width: 100%; /* Make sure it spans the full width for alignment */
 }
 
-
 .about-me-image {
     width: 250px;
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
-}
-
-.home-projects {
-    padding: 20px;
-    border-radius: 20px;
-    background-color: var(--secondary-bg-color);
-    color: var(--secondary-text-color);
-    transition: background-color 0.3s, color 0.3s;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-body.dark .home-projects, body.dark .introduction {
-    background-color: var(--secondary-dark-bg-color);
-    color: var(--secondary-dark-text-color);
 }
 
 .home-projects h2 {
@@ -86,13 +69,10 @@ body.dark .home-projects, body.dark .introduction {
     box-shadow: var(--box-shadow);
     margin: 10px;
     border-radius: 5px;
-    height: 350px;
+    height: 350px; /* Maintain card height */
     position: relative;
     text-align: center;
-}
-
-body.dark .home-project {
-    border: 1px solid #555;
+    overflow: hidden; /* Ensure content does not overflow */
 }
 
 .home-project img {
@@ -102,9 +82,15 @@ body.dark .home-project {
     border-radius: 5px;
 }
 
-.home-project h3,
+/* Set a consistent height for title and description */
+.home-project h3 {
+    margin: 10px 0;
+    height: 50px; /* Fixed height for titles */
+}
+
 .home-project p {
     margin: 10px 0;
+    overflow: hidden; /* Hide overflow text */
 }
 
 .home-project .read-more-btn {
@@ -217,11 +203,10 @@ body.dark .slick-dots li.slick-active button:before {
     }
 
     .home-project {
-        height: 410px;
+        height: 410px; /* Maintain height on mobile */
     }
 
     .about-me {
         display: block;
     }
-
 }

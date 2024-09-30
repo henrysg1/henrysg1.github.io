@@ -223,7 +223,7 @@ const projectsList = [
         ),
         recommended: false 
     },
-    { id: 4, title: 'Designing & building an autonomous line-following robot with computer vision',
+    { id: 4, title: 'Developing an autonomous line-following robot with computer vision',
         description: 'Development of embedded software and hardware to control a vehicle with 4 motors.',
         image: 'images/autonomous-vehicle.jpg',
         details: (<div>
@@ -291,7 +291,7 @@ const projectsList = [
         ),
         recommended: true
     },
-    { id: 5, title: 'Design, construction and testing of a fully controlled Two Switch Forward Converter',
+    { id: 5, title: 'Developing a fully controlled Two Switch Forward Converter',
         description: 'Two Switch Forward Converter with a regulated output voltage',
         image: 'images/converter-pcb.png',
         details: (<div>
@@ -546,7 +546,7 @@ const projectsList = [
         ),
         recommended: true
     },
-    { id: 9, title: 'Strategic energy management system for the University of Nottingham solar racing car',
+    { id: 9, title: 'Strategic energy management system for a solar racing car',
         description: "An optimised prediction model for the University of Nottingham's solar car",
         image: 'images/solar-car-diagram.png',
         details: (<div>

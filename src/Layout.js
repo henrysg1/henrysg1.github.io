@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from './ThemeContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -9,6 +9,7 @@ const Layout = ({ children }) => {
     const { theme, toggleTheme } = useTheme();
     const [isMenuOpen, setMenuOpen] = useState(false);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const location = useLocation(); // Get the current location
 
     useEffect(() => {
         const handleResize = () => {
@@ -16,10 +17,14 @@ const Layout = ({ children }) => {
         };
 
         window.addEventListener('resize', handleResize);
+        
+        // Scroll to the top of the page on route change
+        window.scrollTo(0, 0);
+
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, [location]); // Dependency array includes location
 
     const toggleMenu = () => {
         setMenuOpen(!isMenuOpen);
