@@ -74,7 +74,7 @@ const Layout = ({ children }) => {
             </header>
             <main className={`background ${theme}`}>{children}</main>
             <footer className="footer">
-                <p>&copy; 2024 Henry Sands-Grant. All rights reserved.</p>
+                <p>&copy; 2026 Henry Sands-Grant. All rights reserved.</p>
                 <div className="social-links">
                     <a href="https://github.com/henrysg1" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faGithub} />

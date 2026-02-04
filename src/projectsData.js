@@ -834,7 +834,53 @@ const projectsList = [
       </div>      
       ),
       recommended: true
-    }
+    },
+    { id: 14, title: 'Stravify',
+    description: '',
+    image: 'images/stravify.jpg',
+    details: (<div>
+      <h3>Project Overview</h3>
+      <p>
+         "Stravify" is a fitness tracking application that links your music preferences with your workout routines. The app logs what you listen to during your exercise sessions, identifies patterns in your music choices, and suggests new tracks to enhance your workout experience. By integrating with Spotify and Strava services, Stravify aims to create a personalized and motivating environment for users to achieve their fitness goals.
+      </p>
+      
+      <h4>Project Specifications</h4>
+      <ul>
+        <li>
+          <strong>Music Tracking:</strong> Stravify connects to your Spotify account to monitor the songs you play during your workouts, logging them alongside your exercise data.
+        </li>
+        <li>
+          <strong>Workout Integration:</strong> The app integrates with Strava to access your workout routines, allowing it to correlate your music choices with different types of exercises.
+        </li>
+        <li>
+          <strong>Personalised Recommendations:</strong> Based on your listening habits and workout data, Stravify suggests new tracks that align with your fitness goals and preferences.
+        </li>
+        <li>
+          <strong>User Interface:</strong> The application features an intuitive interface that allows users to view their music and workout statistics, as well as explore recommended tracks.
+        </li>
+      </ul>
+      
+      <h4>System Design and Features</h4>
+      <ul>
+        <li><strong>API Integration:</strong> Stravify utilises the Spotify and Strava APIs to fetch user data, including playlists, listening history, and workout details. OAuth authentication is implemented to ensure secure access to user accounts.</li>
+        <li><strong>Data Analysis:</strong> The app analyses the collected data to identify trends in music preferences during different workout types, using this information to generate personalized recommendations.</li>
+        <li><strong>User Dashboard:</strong> A user-friendly dashboard displays workout statistics, music listening patterns, and recommended tracks, providing insights into how music influences exercise performance.</li>
+        <li><strong>Cross-Platform Compatibility:</strong> Stravify is designed to be accessible on various devices, including smartphones and tablets, ensuring users can track their workouts and music preferences on the go.</li>
+      </ul>
+    
+      <h4>Testing and Evaluation</h4>
+      <p>
+        The application has undergone initial testing, with successful integration of the Spotify and Strava APIs. Further testing will focus on enhancing the accuracy of music suggestions and expanding the range of supported workout types.
+      </p>
+      
+      <h4>Project Status and Future Work</h4>
+      <p>
+        Stravify is currently in progress, with ongoing development focused on improving the user experience, improving data analysis, and adding more personalisation features.
+      </p>
+    </div>      
+    ),
+    recommended: true
+  }
 ];
 
 
