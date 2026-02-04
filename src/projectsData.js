@@ -837,7 +837,7 @@ const projectsList = [
     },
     { id: 14, title: 'Stravify',
     description: '',
-    image: 'images/stravify.jpg',
+    image: 'images/stravify.png',
     details: (<div>
       <h3>Project Overview</h3>
       <p>
