@@ -836,7 +836,7 @@ const projectsList = [
       recommended: true
     },
     { id: 14, title: 'Stravify',
-    description: '',
+    description: 'A fitness tracking app that links your music preferences with your workout routines',
     image: 'images/stravify.png',
     details: (<div>
       <h3>Project Overview</h3>
